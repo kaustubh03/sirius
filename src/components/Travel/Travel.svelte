@@ -1,0 +1,208 @@
+<script>
+	// @ts-nocheck
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { onMount } from 'svelte';
+	import Lenis from 'lenis';
+  import amsterdam from '$lib/images/travel/amsterdam.jpg';
+  import tokyo from '$lib/images/travel/tokyo.jpg';
+  import vienna from '$lib/images/travel/vienna.jpg';
+  import helsinki from '$lib/images/travel/helsinki.jpg';
+  import baku from '$lib/images/travel/baku.jpg';
+  import hanoi from '$lib/images/travel/hanoi.jpg';
+  import brussels from '$lib/images/travel/brussels.jpg';
+  import tallinn from '$lib/images/travel/tallinn.jpg';
+  import bratislava from '$lib/images/travel/bratislava.jpg';
+  import tbilisi from '$lib/images/travel/tbilisi.jpg';
+  import india from '$lib/images/travel/india.jpg';
+
+	const select = (e) => document.querySelector(e);
+	const selectAll = (e) => document.querySelectorAll(e);
+  
+  let places = [{
+    id: amsterdam,
+    title: 'Amsterdam'
+  },
+  {
+    id: tokyo,
+    title: 'Tokyo'
+  },
+  {
+    id: vienna,
+    title: 'Vienna'
+  },
+  {
+    id: helsinki,
+    title: 'Helsinki'
+  },
+  {
+    id: baku,
+    title: 'Baku'
+  },
+  {
+    id: hanoi,
+    title: 'Hanoi'
+  },
+  {
+    id: brussels,
+    title: 'Brussels'
+  },
+  {
+    id: tallinn,
+    title: 'Tallinn'
+  },
+  {
+    id: bratislava,
+    title: 'Bratislava'
+  },
+  {
+    id: tbilisi,
+    title: 'Tbilisi'
+  },
+  {
+    id: india,
+    title: 'India'
+  }
+]
+
+	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		const tracks = selectAll('.sticky-element');
+
+		tracks.forEach((track, i) => {
+			let trackWrapper = track.querySelectorAll('.track');
+			let allImgs = track.querySelectorAll('.image');
+
+			let trackWrapperWidth = () => {
+				let width = 0;
+				trackWrapper.forEach((el) => (width += el.offsetWidth));
+				return width;
+			};
+
+			gsap.defaults({
+				ease: 'none'
+			});
+
+			let scrollTween = gsap.to(trackWrapper, {
+				x: () => -trackWrapperWidth() + window.innerWidth,
+				scrollTrigger: {
+					trigger: track,
+					pin: true,
+					scrub: 1,
+					start: 'center center',
+					end: () => '+=' + (track.scrollWidth - window.innerWidth),
+					onRefresh: (self) => {
+						self.getTween().resetTo('totalProgress', 0);
+					},
+					invalidateOnRefresh: true,
+					id: 'id-one'
+				}
+			});
+
+			allImgs.forEach((img, i) => {
+				// the intended parallax animation
+				gsap.fromTo(
+					img,
+					{
+						x: '-20vw'
+					},
+					{
+						x: '20vw',
+						scrollTrigger: {
+							trigger: img.parentNode, //.panel-wide
+							containerAnimation: scrollTween,
+							start: 'left right',
+							end: 'right left',
+							scrub: true,
+							invalidateOnRefresh: true,
+							onRefresh: (self) => {
+								if (self.start < 0) {
+									self.animation.progress(gsap.utils.mapRange(self.start, self.end, 0, 1, 0));
+								}
+							},
+							id: 'id-two'
+						}
+					}
+				);
+			});
+		});
+
+		//lenis
+		const lenis = new Lenis({
+			duration: 1.2,
+			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			smooth: true
+		});
+
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+		// Scroll to the top on initial load
+		window.scrollTo(0, 0);
+	});
+</script>
+
+<section class="sticky-element half-height">
+	<div class="track flex">
+          <span class="text-[12em] text-brand font-bold text-left">TRAVEL JOURNAL</span>
+		<div class="track-flex">
+      {#each places as place}
+        <div class="panel-wide">
+          <span class="absolute text-[16em] text-white z-50 h-full w-full flex justify-center items-center">
+            {place.title}
+          </span>
+          <img
+            class="image z-10"
+            src={place.id}
+            alt=""
+          />
+			</div>
+      {/each}
+		</div>
+	</div>
+</section>
+
+<style>
+	.sticky-element {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	.track {
+		width: fit-content;
+		flex: 0 0 auto;
+	}
+
+	.track-flex {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		height: 85vh;
+		margin-inline: 15vw;
+	}
+
+	.panel-wide {
+		position: relative;
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		flex: 0 0 auto;
+	}
+	.panel-wide img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.half-height .track-flex {
+		gap: 2rem;
+	}
+</style>
