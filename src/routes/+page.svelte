@@ -1,5 +1,6 @@
 <script>
-	import gsap from 'gsap';
+	import MouseFollower from "mouse-follower";
+	import {gsap} from "gsap/dist/gsap";
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
 	import Introduction from '../components/Introduction/Introduction.svelte';
@@ -10,34 +11,71 @@
 	import Projects from '../components/Work/Projects.svelte';
 	import SideProjects from '../components/Work/SideProjects.svelte';
 	import Travel from '../components/Travel/Travel.svelte';
+	import Footer from '../components/Footer/Footer.svelte';
+	
+	MouseFollower.registerGSAP(gsap);
+
 
 	onMount(() => {
-		gsap.registerPlugin(ScrollTrigger);
+			gsap.registerPlugin(ScrollTrigger);
 
-		const lenis = new Lenis()
 
-		// lenis.on('scroll', (e) => {
-		// // console.log(e)
-		// })
+		const cursor = new MouseFollower({
+			container: document.body,
+			speed: 0.3
+		});
 
-		lenis.on('scroll', ScrollTrigger.update)
 
-		gsap.ticker.add((time)=>{
-		lenis.raf(time * 1000)
-		})
+		// Mouse Follower
+		const el = document.querySelector('.firstContainer');
+		if(el) {
+			el.addEventListener('mouseenter', () => {
+			cursor.setText('Scroll Down');
+			cursor.setSkewing(3);
+			});
+		}
 
-		gsap.ticker.lagSmoothing(0)
+		const lenis = new Lenis();
+
+			lenis.on('scroll', () => {
+				ScrollTrigger.update();
+				if((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 28) {
+					cursor.setText('Scroll Up');
+				}
+				else {
+					cursor.setText('Scroll Down');
+				}
+			});
+
+			gsap.ticker.add((time) => {
+				lenis.raf(time * 1000);
+			});
+
+			gsap.ticker.lagSmoothing(0);
+
+
+
+		// Mouse follower to show video
+
+		// const el = document.querySelector('.my-element');
+
+		// el.addEventListener('mouseenter', () => {
+		// 	cursor.setVideo('/video/example.mp4');
+		// });
+
+		// el.addEventListener('mouseleave', () => {
+		// 	cursor.removeVideo();
+		// });
+
 	});
-	
 </script>
 
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-
 <section>
-	<div class="firstContainer">
+	<div class="firstContainer" data-cursor='-lg'>
 		<Introduction />
 		<About />
 		<WorkEx />
@@ -45,42 +83,12 @@
 		<Projects />
 		<SideProjects />
 		<Travel />
+		<Footer />
 	</div>
-	<div class="h-screen flex-col justify-center items-center w-screen footer">
-		<div class="flex items-center justify-center w-3/5">
-			<span class="w-full text-6xl text-brand font-bold text-center flex justify-center items-center">
-				"The calmer you are, the cleaner you think, the better you code."
-			</span>
-		</div>
-			<div class="h-3/5">
-				<h2 class="text-2xl tracking-widest text-brand font-thin mb-8">
-					Contact to Connect
-				</h2>
-					<ul class="flex justify-between w-screen p-16">
-				<li class="experience text-brand text-5xl">
-					LinkedIn
-				</li>
-				<li class="experience text-brand ml-5 text-5xl">
-					Instagram
-				</li>
-				<li class="experience text-brand ml-5 text-5xl">
-					X
-				</li>
-				<li class="experience text-brand ml-5 text-5xl">
-					Facebook
-				</li>
-				<li class="experience text-brand ml-5 text-5xl">
-					PSN
-				</li>
-			</ul>
-			</div>
-		
-		</div>
 </section>
 
 <style>
 	.firstContainer {
 		padding: 8px 32px;
 	}
-
 </style>

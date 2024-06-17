@@ -1,12 +1,12 @@
 <script>
+	// @ts-nocheck
 	import Header from './Header.svelte';
 	import './styles.css';
 	import "../app.css";
+	export const ssr=false;
 </script>
-
-<div class="app">
+<div class="app overflow-hidden">
 	<!-- <Header /> -->
-
 	<main class="bg-neutral-900">
 		<slot />
 	</main>

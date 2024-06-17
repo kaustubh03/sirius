@@ -1,6 +1,6 @@
 <script>
 	// @ts-nocheck
-	import gsap from 'gsap';
+	import {gsap} from "gsap/dist/gsap";
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
 	import Lenis from 'lenis';
@@ -16,7 +16,7 @@
   import tbilisi from '$lib/images/travel/tbilisi.jpg';
   import india from '$lib/images/travel/india.jpg';
 
-	const select = (e) => document.querySelector(e);
+	// const select = (e) => document.querySelector(e);
 	const selectAll = (e) => document.querySelectorAll(e);
   
   let places = [{
@@ -91,7 +91,7 @@
 					pin: true,
 					scrub: 1,
 					start: 'center center',
-					end: () => '+=' + (track.scrollWidth - window.innerWidth),
+					end: () => '+=' + (track.scrollWidth - window.innerWidth - 28),
 					onRefresh: (self) => {
 						self.getTween().resetTo('totalProgress', 0);
 					},
@@ -128,31 +128,18 @@
 			});
 		});
 
-		//lenis
-		const lenis = new Lenis({
-			duration: 1.2,
-			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-			smooth: true
-		});
-
-		function raf(time) {
-			lenis.raf(time);
-			requestAnimationFrame(raf);
-		}
-
-		requestAnimationFrame(raf);
 		// Scroll to the top on initial load
 		window.scrollTo(0, 0);
 	});
 </script>
 
-<section class="sticky-element half-height">
+<section class="sticky-element half-height mb-28">
 	<div class="track flex">
           <span class="text-[12em] text-brand font-bold text-left">TRAVEL JOURNAL</span>
 		<div class="track-flex">
       {#each places as place}
         <div class="panel-wide">
-          <span class="absolute text-[16em] text-white z-50 h-full w-full flex justify-center items-center">
+          <span class="absolute text-[16em] text-white z-50 h-full w-full flex justify-center items-center xs:text-5xl sm:text-5xl md:text-5xl lg:text-[16em] xl:text-[16em] 2xl:text-[16em]">
             {place.title}
           </span>
           <img

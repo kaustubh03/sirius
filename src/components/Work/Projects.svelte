@@ -1,6 +1,6 @@
 <script>
 	// @ts-nocheck
-	import { gsap } from 'gsap';
+	import {gsap} from "gsap/dist/gsap";
 
 	const products = [
 		{
@@ -45,27 +45,26 @@
 		}
 	];
 	const handleMouseEnter = (e) => {
-		const product = e.target.getAttribute('data-product');
-		console.log(product);
-		const image = document.querySelector(`.thumbnail-image-${product}`);
-		gsap.to(image, { autoAlpha: 1 });
-	};
+    const product = e.target.getAttribute('data-product');
+    const image = document.querySelector(`.thumbnail-image-${product}`);
+    gsap.to(image, { autoAlpha: 1 });
+  };
 
-	const handleMouseLeave = (e) => {
-		const product = e.target.getAttribute('data-product');
-		const image = document.querySelector(`.thumbnail-image-${product}`);
-		gsap.to(image, { autoAlpha: 0 });
-	};
+  const handleMouseLeave = (e) => {
+    const product = e.target.getAttribute('data-product');
+    const image = document.querySelector(`.thumbnail-image-${product}`);
+    gsap.to(image, { autoAlpha: 0 });
+  };
 
-	const handleMouseMove = (e) => {
-		const product = e.target.getAttribute('data-product');
-		const image = document.querySelector(`.thumbnail-image-${product}`);
-		gsap.set(image, { x: e.offsetX - 200 });
-	};
+  const handleMouseMove = (e) => {
+    const product = e.target.getAttribute('data-product');
+    const image = document.querySelector(`.thumbnail-image-${product}`);
+    gsap.set(image, { x: e.offsetX - 200 });
+  };
 </script>
 
 <div
-	class="experience flex flex-col justify-start items-start h-screen z-90 relative overflow-hidden mx-16 mt-96"
+	class="experience flex flex-col justify-start items-start h-screen z-90 relative overflow-hidden mx-16 xs:mt-24 sm:mt-24 md:mt-24 lg:mt-96 mt-96"
 >
 	<div class="wrapper w-full">
 		<h2 class="text-2xl tracking-widest text-brand font-thin mb-8">
@@ -75,7 +74,7 @@
 			{#each products as product}
             <a href={product.link}>
 				<li
-					class="item flex items-center justify-center py-12 experience-item"
+					class="item flex xs:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center justify-center py-12 experience-item"
 				>
                     {#if product.image}
                         <img
@@ -85,7 +84,7 @@
 					    />
                     {/if}
 					
-					<span class="flex-2 text-5xl text-accent work_company-name text-left pl-4 hover:text-brand"
+					<span class="flex-2 text-5xl text-accent work_company-name text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl "
                         on:mouseenter={handleMouseEnter}
                         on:mousemove={handleMouseMove}
                         on:mouseleave={handleMouseLeave}

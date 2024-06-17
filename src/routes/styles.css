@@ -21,6 +21,7 @@ html {
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
+	cursor: none;
 }
 body {
 	margin: 0;
@@ -34,4 +35,11 @@ html,
 body {
 	overflow-x: hidden;
 	margin: 0;
+}
+
+.-lg {
+	&:before {
+		transform: scale(3);
+		background-color: #fafafa76;
+	}
 }

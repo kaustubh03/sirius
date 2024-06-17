@@ -1,6 +1,7 @@
 <script>
+    // @ts-nocheck
 	import { onMount } from 'svelte';
-    import gsap from 'gsap';
+    import {gsap} from "gsap/dist/gsap";
     import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
  	import bstack from '$lib/images/bstack.svg';
     import eiu from '$lib/images/eiu.jpeg';
@@ -69,7 +70,7 @@
             ease: 'power2.out',
             scrollTrigger: {
             trigger: experience,
-            start: 'top 80%',
+            start: 'top 90%',
             toggleActions: 'play none none reset'
             }
         });
@@ -82,66 +83,60 @@
     });
 </script>
 
-<div class="experience flex flex-col justify-start items-start h-screen z-90 relative overflow-hidden mx-16">
-    <div bind:this={experience} class="wrapper w-full">
-        <h2 class="text-2xl tracking-widest text-brand font-thin mb-8">EXPERIENCE</h2>
-        <div bind:this={experience} class="flex-col w-full text-brand">
-            {#each experienceData as data}
-                <a href={data.link} target="_blank">
-                    <div class="flex items-center justify-center border-t-0.5 border-gray-800 py-12 experience-item">
-                        <img src={data.icon} alt="workplace-icon" class="w-20 rounded-full mr-8"/>
-                        <span class="flex-1 text-6xl text-accent work_company-name text-left">{data.name}</span>
-                        <span class="flex-1 text-right">{data.tagline}</span>
-                        <span class="flex-1 text-right">{data.position}</span>
-                        <span class="flex-1 text-right">{data.duration}</span>
-                        <span class="text-mask text-5xl text-center uppercase font-semibold text-primary">{data.tagline}</span>
-                    </div>
-                </a>
-            {/each}
-        </div>
+<div class="experience flex flex-col justify-start items-start h-full z-90 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16">
+  <div bind:this={experience} class="wrapper w-full">
+    <h2 class="text-2xl tracking-widest text-brand font-thin mb-8">EXPERIENCE</h2>
+    <div bind:this={experience} class="flex-col w-full text-brand">
+      {#each experienceData as data}
+        <a href={data.link} target="_blank" class="w-full">
+          <div class="flex flex-col sm:flex-row items-center justify-between border-t-0.5 border-gray-800 py-6 sm:py-12 experience-item">
+            <div class="flex items-center mb-4 sm:mb-0">
+              <img src={data.icon} alt="workplace-icon" class="w-12 sm:w-20 rounded-full mr-4 sm:mr-8" />
+              <span class="text-2xl sm:text-6xl text-accent work_company-name text-left">{data.name}</span>
+            </div>
+            <div class="text-center sm:text-right">
+              <span class="text-sm sm:text-lg text-gray-400">{data.tagline}</span>
+              <span class="block text-xs sm:text-base">{data.position}</span>
+              <span class="block text-xs sm:text-base">{data.duration}</span>
+            </div>
+            <span class="hidden sm:block text-mask text-3xl sm:text-5xl uppercase font-semibold text-primary text-center">{data.tagline}</span>
+          </div>
+        </a>
+      {/each}
     </div>
+  </div>
 </div>
 
 <style>
+  .experience-item {
+    width: 100%;
+    background: linear-gradient(to right, #ff8b0f, #b6b6b6) no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 0%;
+    transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
+    position: relative;
+    cursor: pointer;
+  }
 
-    .experience-item {
-         width: 100%;
-        background: linear-gradient(to right, #ff8b0f, #b6b6b6) no-repeat;
-        -webkit-background-clip: text;
-        background-clip: text;
-        background-size: 0%;
-        transition: background-size cubic-bezier(.1,.5,.5,1) 0.5s;
-        
+  span.text-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #b7ab98;
+    clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+    transform-origin: center;
+    transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-        position: relative;
-        cursor: pointer;
-    }
-     span.text-mask {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: #b7ab98;
+  .experience-item:hover > span {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 
-        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
-        transform-origin: center;
-        transition: all cubic-bezier(.1,.5,.5,1) 0.4s;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-     .experience-item:hover > span {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    }
-    a {
-        text-decoration: none;
-        cursor: pointer;
-    }
-     #bgVideo {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        top:0;
-        object-fit: fill;
-    }
+  a {
+    text-decoration: none;
+  }
 </style>
