@@ -102,7 +102,7 @@
     </div>
   {/if}
   <div class="wrapper w-full z-50">
-    <h2 class="text-xl md:text-2xl tracking-widest text-brand font-thin mb-4 md:mb-8">Some of the Side Projects which I Built</h2>
+    <h2 class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">Some of the Side Projects which I Built</h2>
     <ul class="flex-col w-full text-brand" id="project-list">
       {#each sideProjects as product}
         <a href={product.link}>
@@ -115,7 +115,7 @@
               />
             {/if}
               <span
-                class="flex-2 text-5xl text-accent work_company-name text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl"
+                class="flex-2 text-5xl text-accent work_company-name xs:text-center lg:text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl z-10"
                 on:mouseenter={handleMouseEnter}
                 on:mousemove={handleMouseMove}
                 on:mouseleave={handleMouseLeave}

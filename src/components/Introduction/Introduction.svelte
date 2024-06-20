@@ -17,7 +17,7 @@ import asset_1 from '$lib/videos/intro.webm';
                 ease: 'none',
                 scrollTrigger: {
                 trigger: text,
-                start: 'center 65%',
+                start: 'center 40%',
                 end: 'center 20%',
                 scrub: true,
                 },
@@ -59,17 +59,17 @@ import asset_1 from '$lib/videos/intro.webm';
     });
 </script>
 
-<div class="relative h-screen" id="introduction">
-  <video autoplay muted loop id="bgVideo" class="absolute inset-0 w-full h-full object-cover">
+<div class="relative h-screen section" id="introduction">
+  <video autoplay muted loop id="bgVideo" class="absolute inset-0 w-full h-full object-cover xs:hidden sm:hidden md:hidden lg:block xl:block">
     <source src={asset_1} type="video/webm">
   </video>
 
-  <div class="fixed inset-0 h-screen w-screen bg-black opacity-60" id="intro-overlay"></div>
+  <div class="fixed inset-0 h-screen w-screen bg-black opacity-60 xs:hidden sm:hidden md:hidden lg:block xl:block" id="intro-overlay"></div>
   <div class="text-container flex flex-col justify-center items-center z-10 relative h-full px-4 md:px-8 lg:px-16">
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">WELCOME.<span class="text-mask">नमस्ते</span></h1>
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">I'M KAUSTUBH SAXENA.<span class="text-mask">नाम है मेरा</span></h1>
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">DEVELOPER.<span class="text-mask">काम है मेरा</span></h1>
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">TRAVELLER.<span class="text-mask">शौक है मेरा</span></h1>
+    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">WELCOME.<span class="text-mask">नमस्ते</span></h1>
+    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">I'M KAUSTUBH SAXENA.<span class="text-mask">नाम है मेरा</span></h1>
+    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">DEVELOPER.<span class="text-mask">काम है मेरा</span></h1>
+    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">TRAVELLER.<span class="text-mask">शौक है मेरा</span></h1>
   </div>
 </div>
 
@@ -126,6 +126,13 @@ import asset_1 from '$lib/videos/intro.webm';
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-    }
+        z-index: 0; /* Ensure the video is behind other elements */
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+        #bgVideo {
+            width: auto;
+            height: 100%;
+        }
+        }
 </style>

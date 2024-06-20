@@ -19,7 +19,10 @@
 	// const select = (e) => document.querySelector(e);
 	const selectAll = (e) => document.querySelectorAll(e);
   
-  let places = [{
+  let places = [ {
+    id: india,
+    title: 'India'
+  },{
     id: amsterdam,
     title: 'Amsterdam'
   },
@@ -58,10 +61,6 @@
   {
     id: tbilisi,
     title: 'Tbilisi'
-  },
-  {
-    id: india,
-    title: 'India'
   }
 ]
 
@@ -133,19 +132,19 @@
 	});
 </script>
 
-<section class="sticky-element half-height mb-28">
+<section class="sticky-element half-height mb-28 section" id="travel">
 	<div class="track flex">
-          <span class="text-[12em] text-brand font-bold text-left">TRAVEL JOURNAL</span>
+          <span class="text-[12em] text-brand font-bold text-left ml-8">TRAVEL JOURNAL</span>
 		<div class="track-flex">
       {#each places as place}
         <div class="panel-wide">
-          <span class="absolute text-[16em] text-white z-50 h-full w-full flex justify-center items-center xs:text-5xl sm:text-5xl md:text-5xl lg:text-[16em] xl:text-[16em] 2xl:text-[16em]">
+          <span class="absolute text-[16em] text-white z-50 h-full w-full flex justify-center items-center xs:text-5xl sm:text-5xl md:text-5xl lg:text-[16em] xl:text-[16em] 2xl:text-[16em] opacity-85">
             {place.title}
           </span>
           <img
             class="image z-10"
             src={place.id}
-            alt=""
+            alt={place.id}
           />
 			</div>
       {/each}

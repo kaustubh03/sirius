@@ -8,7 +8,7 @@
     import paytm from '$lib/images/paytm.jpeg';
     import lambdatest from '$lib/images/lambdatest.jpeg';
     import etelligens from '$lib/images/etelligens.png';
-
+    let isMobile;
     let experience;
     const experienceData = [
         {
@@ -58,38 +58,42 @@
         },
     ]
 	  onMount(() => {
-        gsap.registerPlugin(ScrollTrigger);
+        isMobile = window.innerWidth <= 767;
+        if(!isMobile) {
+            gsap.registerPlugin(ScrollTrigger);
 
-        const experienceItems = experience.querySelectorAll('.experience-item');
+            const experienceItems = experience.querySelectorAll('.experience-item');
 
-        experienceItems.forEach((item, index) => {
-        gsap.from(item, {
-            x: '100%', // Start from 100% to the right
-            opacity: 0,
-            duration: 1.5 - index * 0.2, // Decrease duration for each item
-            ease: 'power2.out',
-            scrollTrigger: {
-            trigger: experience,
-            start: 'top 90%',
-            toggleActions: 'play none none reset'
-            }
-        });
-        });
+            experienceItems.forEach((item, index) => {
+            gsap.from(item, {
+                x: '100%', // Start from 100% to the right
+                opacity: 0,
+                duration: 1.5 - index * 0.2, // Decrease duration for each item
+                ease: 'power2.out',
+                scrollTrigger: {
+                trigger: experience,
+                start: 'top 90%',
+                toggleActions: 'play none none reset'
+                }
+            });
+            });
 
-        // Clean up
-        return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+            // Clean up
+            return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            };
+        }
+        
     });
 </script>
 
-<div class="experience flex flex-col justify-start items-start h-full z-90 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16">
+<div id="work" class="experience flex flex-col justify-start items-start h-full z-90 relative overflow-hidden px-4 xs:mt-8 sm:px-8 md:px-12 lg:px-16n">
   <div bind:this={experience} class="wrapper w-full">
-    <h2 class="text-2xl tracking-widest text-brand font-thin mb-8">EXPERIENCE</h2>
+    <h2 class="text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">EXPERIENCE</h2>
     <div bind:this={experience} class="flex-col w-full text-brand">
       {#each experienceData as data}
         <a href={data.link} target="_blank" class="w-full">
-          <div class="flex flex-col sm:flex-row items-center justify-between border-t-0.5 border-gray-800 py-6 sm:py-12 experience-item">
+          <div class="flex flex-col sm:flex-row items-center justify-between border-t-0.5 border-gray-800 py-6 sm:py-12 experience-item z-10">
             <div class="flex items-center mb-4 sm:mb-0">
               <img src={data.icon} alt="workplace-icon" class="w-12 sm:w-20 rounded-full mr-4 sm:mr-8" />
               <span class="text-2xl sm:text-6xl text-accent work_company-name text-left">{data.name}</span>

@@ -1,11 +1,10 @@
 <script>
-  // ... (existing script code)
 </script>
 
-<div id="#footer" class="flex flex-col md:flex-row items-center footer px-4 md:px-16 relative mt-28">
+<div id="contact" class="flex flex-col md:flex-row items-center footer px-4 md:px-16 relative mt-28">
   <div class="flex md:flex-row md:items-start">
     <div class="flex flex-col md:mr-16">
-      <h2 class="text-base tracking-widest text-brand font-thin pb-4 ml-5 flex flex-1">Connect</h2>
+      <h2 class="text-base tracking-widest text-brand font-thin pb-4 ml-5 flex flex-1 opacity-50">Connect</h2>
       <div>
         <ul class="flex flex-col md:flex-row justify-between pr-16 pb-16 flex-wrap">
           <li class="footer-item text-brand text-xl md:text-2xl ml-5 z-50">
@@ -23,17 +22,17 @@
           <li class="footer-item text-brand ml-5 text-xl md:text-2xl">
             <a href="https://www.facebook.com/kaustubh.saxena3/">Facebook</a>
           </li>
-          <!-- <li class="footer-item text-brand ml-5 text-xl md:text-2xl">PSN @recursivecurse</li> -->
+          <li class="footer-item text-brand ml-5 text-xl md:text-2xl">PSN @recursivecurse</li>
         </ul>
       </div>
     </div>
 
-    <div class="flex flex-col justify-start items-start flex-1 mt-8 md:mt-0">
-      <h2 class="text-base tracking-widest text-brand font-thin mb-4 text-left md:text-right w-full">
+    <div class="flex flex-col justify-start items-start flex-1 mt-8 md:mt-0 xs:hidden lg:block">
+      <h2 class="text-base tracking-widest text-brand font-thin mb-4 text-left md:text-right w-full opacity-50">
         The Quote I love the most
       </h2>
-      <span class="w-full text-3xl xs:text-2xl sm:text-2xl md:text-3xl lg:text-6xl text-brand font-bold text-left md:text-right flex justify-start md:justify-end items-center">
-        Rock bottom will teach you more than mountains tops never will.
+      <span class="w-full text-3xl xs:text-base sm:text-2xl md:text-3xl lg:text-5xl text-brand font-bold text-left md:text-right flex justify-start md:justify-end items-center">
+        Rock bottom will teach you more than mountain tops never will.
       </span>
     </div>
   </div>

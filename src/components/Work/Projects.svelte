@@ -64,10 +64,10 @@
 </script>
 
 <div
-	class="experience flex flex-col justify-start items-start h-screen z-90 relative overflow-hidden mx-16 xs:mt-24 sm:mt-24 md:mt-24 lg:mt-96 mt-96"
+	class="experience flex flex-col justify-start items-start h-screen z-90 relative overflow-hidden xs:mx-4 lg:mx-16 xs:mt-24 sm:mt-24 md:mt-24 lg:mt-96 mt-96"
 >
 	<div class="wrapper w-full">
-		<h2 class="text-2xl tracking-widest text-brand font-thin mb-8">
+		<h2 class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">
 			Some of the Products I Built Professionally
 		</h2>
 		<ul class="flex-col w-full text-brand" id="project-list">
@@ -84,7 +84,7 @@
 					    />
                     {/if}
 					
-					<span class="flex-2 text-5xl text-accent work_company-name text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl "
+					<span class="flex-2 text-5xl text-accent work_company-name xs:text-center lg:text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl z-10"
                         on:mouseenter={handleMouseEnter}
                         on:mousemove={handleMouseMove}
                         on:mouseleave={handleMouseLeave}
