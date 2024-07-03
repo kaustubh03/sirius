@@ -17,7 +17,7 @@ import asset_1 from '$lib/videos/intro.webm';
                 ease: 'none',
                 scrollTrigger: {
                 trigger: text,
-                start: 'center 40%',
+                start: 'center 100%',
                 end: 'center 20%',
                 scrub: true,
                 },
@@ -51,8 +51,9 @@ import asset_1 from '$lib/videos/intro.webm';
             height: "5px",
             opacity:0
         });
+        const textMask = document.querySelector('.text-mask');
+        textMask.classList.add('auto-show');
 
-        // Clean up
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
@@ -66,10 +67,10 @@ import asset_1 from '$lib/videos/intro.webm';
 
   <div class="fixed inset-0 h-screen w-screen bg-black opacity-60 xs:hidden sm:hidden md:hidden lg:block xl:block" id="intro-overlay"></div>
   <div class="text-container flex flex-col justify-center items-center z-10 relative h-full px-4 md:px-8 lg:px-16">
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">WELCOME.<span class="text-mask">नमस्ते</span></h1>
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">I'M KAUSTUBH SAXENA.<span class="text-mask">नाम है मेरा</span></h1>
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">DEVELOPER.<span class="text-mask">काम है मेरा</span></h1>
-    <h1 class="text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-8xl xl:text-8xl">TRAVELLER.<span class="text-mask">शौक है मेरा</span></h1>
+    <!-- <h1 class="text font-bold sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">WELCOME.<span class="text-mask">नमस्ते</span></h1> -->
+    <h1 class="text font-bold sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">KAUSTUBH SAXENA.<span class="text-mask text-white p-4">नाम है मेरा</span></h1>
+    <h1 class="text font-thin sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">DEVELOPER.<span class="text-mask text-white p-4">काम है मेरा</span></h1>
+    <h1 class="text font-thin sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">TRAVELLER.<span class="text-mask text-white p-4">शौक है मेरा</span></h1>
   </div>
 </div>
 
@@ -83,8 +84,8 @@ import asset_1 from '$lib/videos/intro.webm';
         line-height: 100%;
         margin: 0;
         width: 100%;
-        color: rgb(182, 182, 182, 0.2);
-        background: linear-gradient(to right, #ff8b0f, #b6b6b6) no-repeat;
+        color: rgba(182, 182, 182, 0.458);
+        background: linear-gradient(to right, #a367b1d5, #b6b6b6) no-repeat;
         -webkit-background-clip: text;
         background-clip: text;
         background-size: 0%;
@@ -101,17 +102,17 @@ import asset_1 from '$lib/videos/intro.webm';
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: #ff8b0f;
-        color: #0D0D0D;
+        background-color: #A367B1;
         clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
         transform-origin: center;
         transition: all cubic-bezier(.1,.5,.5,1) 0.4s;
         display: flex;
         flex-direction: column;
         justify-content: center;
+
     }
 
-    .text:hover > span {
+    .text:hover > span.text-mask {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
     
@@ -127,6 +128,7 @@ import asset_1 from '$lib/videos/intro.webm';
         width: 100%;
         height: 100%;
         z-index: 0; /* Ensure the video is behind other elements */
+        opacity: 0.85
         }
 
         @media (max-aspect-ratio: 16/9) {

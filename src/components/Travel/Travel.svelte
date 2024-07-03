@@ -90,7 +90,7 @@
 					pin: true,
 					scrub: 1,
 					start: 'center center',
-					end: () => '+=' + (track.scrollWidth - window.innerWidth - 28),
+					end: () => '+=' + (track.scrollWidth - window.innerWidth - 58),
 					onRefresh: (self) => {
 						self.getTween().resetTo('totalProgress', 0);
 					},
@@ -131,10 +131,14 @@
 		window.scrollTo(0, 0);
 	});
 </script>
+<section class="sticky-element half-height mb-28 section" id="travel" data-cursor-text='&darr;'>
+      <div class="flex justify-center">
+        <a href="#sideProjects" class="absolute top-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to previous section &#8689;</a>
+        <a href="#contact" class="absolute bottom-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to next section &#8690;</a>
+      </div>
+	<div class="track flex relative">
+          <span class="text-[12em] text-brand font-bold text-left ml-8 title">TRAVEL JOURNAL</span>
 
-<section class="sticky-element half-height mb-28 section" id="travel">
-	<div class="track flex">
-          <span class="text-[12em] text-brand font-bold text-left ml-8">TRAVEL JOURNAL</span>
 		<div class="track-flex">
       {#each places as place}
         <div class="panel-wide">
@@ -149,46 +153,62 @@
 			</div>
       {/each}
 		</div>
+    
 	</div>
+  
 </section>
 
 <style>
-	.sticky-element {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		width: 100%;
-		height: 100vh;
-		overflow: hidden;
-	}
+.title {
+  background-image: url('$lib/images/travel/bg.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y:center;
+}
+.sticky-element {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
-	.track {
-		width: fit-content;
-		flex: 0 0 auto;
-	}
+.track {
+  width: fit-content;
+  flex: 0 0 auto;
+}
 
-	.track-flex {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		height: 85vh;
-		margin-inline: 15vw;
-	}
+.track-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 85vh;
+  margin-inline: 4.5vw;
+  /* overflow-x: auto; */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
 
-	.panel-wide {
-		position: relative;
-		width: 100vw;
-		height: 100%;
-		overflow: hidden;
-		flex: 0 0 auto;
-	}
-	.panel-wide img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+.panel-wide {
+  position: relative;
+  min-width: 100vw; /* Updated */
+  height: 100%;
+  overflow: hidden;
+  flex: 0 0 100vw; /* Updated */
+  scroll-snap-align: start;
+  min-width: 105vw;
+  flex: 0 0 105vw;
+}
 
-	.half-height .track-flex {
-		gap: 2rem;
-	}
+.panel-wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.half-height .track-flex {
+  gap: 2rem;
+}
 </style>

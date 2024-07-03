@@ -7,7 +7,7 @@
 </script>
 <div class="app overflow-hidden">
 	<!-- <Header /> -->
-	<main class="bg-neutral-900">
+	<main class="bg-black">
 		<slot />
 	</main>
 

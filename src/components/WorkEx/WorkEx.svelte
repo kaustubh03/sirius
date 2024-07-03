@@ -92,11 +92,11 @@
     <h2 class="text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">EXPERIENCE</h2>
     <div bind:this={experience} class="flex-col w-full text-brand">
       {#each experienceData as data}
-        <a href={data.link} target="_blank" class="w-full">
+        <a href={data.link} target="_blank" class="w-full" data-cursor-text="&#8599;">
           <div class="flex flex-col sm:flex-row items-center justify-between border-t-0.5 border-gray-800 py-6 sm:py-12 experience-item z-10">
             <div class="flex items-center mb-4 sm:mb-0">
               <img src={data.icon} alt="workplace-icon" class="w-12 sm:w-20 rounded-full mr-4 sm:mr-8" />
-              <span class="text-2xl sm:text-6xl text-accent work_company-name text-left">{data.name}</span>
+              <span class="text-2xl sm:text-6xl text-white work_company-name text-left">{data.name}</span>
             </div>
             <div class="text-center sm:text-right">
               <span class="text-sm sm:text-lg text-gray-400">{data.tagline}</span>

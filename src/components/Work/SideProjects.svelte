@@ -1,17 +1,6 @@
 <script>
 	// @ts-nocheck
 	import {gsap} from "gsap/dist/gsap";
-	import { onMount } from 'svelte';
-	let LottiePlayer;
-
-	let controlsLayout = [
-		
-	];
-
-	onMount(async () => {
-		const module = await import('@lottiefiles/svelte-lottie-player');
-		LottiePlayer = module.LottiePlayer;
-	});
 	
 	const sideProjects = [
 		{
@@ -84,8 +73,8 @@
 	};
 </script>
 
-<div class="experience flex flex-col justify-start items-start h-screen relative overflow-hidden mx-4 my-8 md:mx-16 md:mt-16">
-  {#if LottiePlayer}
+<div id="sideProjects" class="experience flex flex-col justify-start items-start h-screen relative overflow-hidden mx-4 my-8 md:mx-16 md:mt-8">
+  <!-- {#if LottiePlayer}
     <div class="absolute z-0 xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  flex justify-center -bottom-20 md:-bottom-40 left-0 right-0">
       <LottiePlayer
         src="https://lottie.host/22bd5ad3-4df7-496f-afc1-7da3c1a0a43f/MxKTtBo48t.json"
@@ -100,22 +89,22 @@
         {controlsLayout}
       />
     </div>
-  {/if}
+  {/if} -->
   <div class="wrapper w-full z-50">
     <h2 class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">Some of the Side Projects which I Built</h2>
     <ul class="flex-col w-full text-brand" id="project-list">
       {#each sideProjects as product}
-        <a href={product.link}>
+        <a href={product.link} data-cursor-text="&#8599;">
           <li class="item flex xs:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center justify-center py-12 experience-item">
             {#if product.image}
               <img
                 alt="thumbnail"
                 src={product.image}
-                class={`thumbnail-image-${product.id} absolute w-3/5 object-contain invisible`}
+                class={`thumbnail-image-${product.id} absolute w-3/5 object-contain invisible z-50`}
               />
             {/if}
               <span
-                class="flex-2 text-5xl text-accent work_company-name xs:text-center lg:text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl z-10"
+                class="flex-2 text-5xl text-white work_company-name xs:text-center lg:text-left pl-4 hover:text-brand xs:text-base sm:text-2xl md:text-3xl lg:text-5xl z-10"
                 on:mouseenter={handleMouseEnter}
                 on:mousemove={handleMouseMove}
                 on:mouseleave={handleMouseLeave}

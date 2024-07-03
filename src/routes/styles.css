@@ -1,9 +1,11 @@
 @import '@fontsource/fira-mono';
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
 
 :root {
 	--font-body: "Ubuntu", sans-serif;
 	--font-mono: 'Fira Mono', monospace;
+	--font-teko: "Teko", sans-serif;
 	--color-bg-0: rgb(202, 216, 228);
 	--color-bg-1: hsl(209, 36%, 86%);
 	--color-bg-2: hsl(224, 44%, 95%);
@@ -25,7 +27,7 @@ html {
 }
 body {
 	margin: 0;
-	background-color: #0D0D0D;
+	background-color: #000;
 	overflow-y: visible;
 	position: relative;
 	height: unset;
@@ -40,6 +42,19 @@ body {
 .-lg {
 	&:before {
 		transform: scale(3);
-		background-color: #fafafa76;
+		background-color: #a367b1a6;
 	}
+}
+
+.font-teko{
+	font-family: "Teko", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.mf-cursor-text {
+	color: #fafafa;
+	font-size: 32px;
+	font-weight: 700;
 }

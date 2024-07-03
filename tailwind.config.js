@@ -13,9 +13,11 @@ export default {
     },
     extend: {
       colors: {
-        'primary': '#0d0d0d',
+        'primary': '#000',
         'brand': '#b7ab98',
-        'accent': '#bf680c'
+        'accent': '#A367B1',
+        'accent-lite': "#a367b1d5",
+        'base-lite': '#b6b6b6'
       },
       bg: {
         'primary': '#b7ab98'
@@ -31,7 +33,13 @@ export default {
       '6': '6px',
       '8': '8px',
       }
-    }
+    },
+    columnCount: {
+        '1': '1',
+        '2': '2',
+        '3': '3',
+        '4': '4',
+      }
   },
   plugins: []
 };
