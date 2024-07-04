@@ -211,7 +211,7 @@
 			<section class="parent-section">
 				<Work />
 			</section>
-			<section class="parent-section">
+			<section class="parent-section flex items-center">
 				<Projects />
 			</section>
 			<!-- <section class="parent-section">
