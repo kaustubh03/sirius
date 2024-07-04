@@ -133,7 +133,7 @@
 </script>
 <section class="sticky-element half-height mb-28 section" id="travel" data-cursor-text='&darr;'>
       <div class="flex justify-center">
-        <a href="#sideProjects" class="absolute top-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to previous section &#8689;</a>
+        <!-- <a href="#sideProjects" class="absolute top-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to previous section &#8689;</a> -->
         <a href="#contact" class="absolute bottom-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to next section &#8690;</a>
       </div>
 	<div class="track flex relative">
