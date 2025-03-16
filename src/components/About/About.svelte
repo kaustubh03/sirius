@@ -124,7 +124,7 @@
 		bind:this={wrapper}
 		class="wrapper w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 z-50 px-4 sm:px-8 md:px-12 lg:px-16 relative"
 	>
-		<h2 class="text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">ABOUT ME</h2>
+		<h2 class="text-2xl tracking-widest font-mono text-brand font-thin mb-8 opacity-50">ABOUT ME</h2>
 		<span
 			class="text-3xl xs:text-base sm:text-3xl md:text-3xl lg:text-3xl text-brand font-thin text-left block mb-4 animate-text tracking-wider"
 		>
@@ -165,8 +165,12 @@
 			opacity: 1 !important;
 			transform: none !important;
 			filter: none !important;
-			height: 100%;
 			border-radius: 29% 71% 74% 26% / 52% 26% 74% 48% !important;
+		}
+
+		#about {
+			background-size: cover;
+			height: 100vh;
 		}
 	}
 </style>

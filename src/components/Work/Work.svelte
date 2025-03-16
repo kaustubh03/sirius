@@ -19,9 +19,9 @@
 </script>
 
 <div bind:this={wrapper} class="flex flex-col justify-center items-center h-screen z-90 relative xs:mt-36 lg:mt-16 xs:h-52 sm:h-52 md:h-52 lg:h-screen xl:h-screen 2xl:h-screen section">
-  <div class="flex justify-between items-center w-3/5 mt-16">
-    <span id="notall" class="text-4xl xs:text-base sm:text-4xl md:text-4xl font-bold text-brand relative left-5 z-20">SELECTIVE</span>
-    <span id="some" class="text-4xl xs:text-base sm:text-4xl md:text-4xl font-bold text-brand relative z-20">CRAFTSMANSHIP</span>
+  <div class="flex justify-between items-center w-3/5 mt-16 xs:w-full md:w-3/5 p-2">
+    <span id="notall" class="text-4xl xs:text-2xl sm:text-4xl md:text-4xl font-bold text-brand relative z-20">SELECTIVE</span>
+    <span id="some" class="text-4xl xs:text-2xl sm:text-4xl md:text-4xl font-bold text-brand relative z-20">CRAFTSMANSHIP</span>
   </div>
   <span id="projects" class="xs:text-5xl sm:text-5xl md:text-8xl lg:text-[10em] font-bold text-brand relative z-20">PROJECTS</span>
   <img src={laptop} alt="laptop" class="z-10 mt-40 sm:mt-60 md:mt-40 absolute w-3/4 sm:w-2/3 md:w-auto xs:hidden sm:hidden md:block lg:block xl:block 2xl:block" width="1600" />
@@ -33,5 +33,16 @@
     background-image: url('$lib/images/initbg.svg');
     background-position: center;
     background-size: cover;
+  }
+
+  @media (max-width: 767px) {
+    .section {
+      height: 100vh;
+    }
+
+    .section span {
+      background: #000;
+    }
+
   }
 </style>

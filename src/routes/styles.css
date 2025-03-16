@@ -53,6 +53,20 @@ body {
 	font-style: normal;
 }
 
+.font-mono{
+	font-family: 'Fira Mono', monospace;
+	font-optical-sizing: auto;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.font-body {
+	font-family: "Ubuntu", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 200;
+		font-style: normal;
+}
+
 .mf-cursor-text {
 	color: #fafafa;
 	font-size: 32px;

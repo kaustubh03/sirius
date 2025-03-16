@@ -13,6 +13,7 @@
 	let isPaused = false;
 	let intervalId;
 	let currentView = 'slide';
+	let isMobile;
 
 	const products = [
 		{
@@ -119,6 +120,10 @@
 	];
 
 	onMount(() => {
+		isMobile = window.innerWidth <= 767;
+		if(isMobile) {
+			currentView = 'list'
+		}
 		slides = carousel.querySelectorAll('.carousel-slide');
 		setPositions();
 
@@ -207,11 +212,11 @@
 >
 	<div class="flex justify-between w-full pb-8">
 		<h2
-			class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin mb-8 opacity-50"
+			class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin font-mono mb-8 opacity-50"
 		>
 			A Glimpse into My Work
 		</h2>
-		<div class="flex items-center">
+		<div class="items-center xs:hidden md:flex">
 			<button class={`text-brand xs:text-base lg:text-2xl ${currentView === 'slide' ? 'opacity-100' :'opacity-60'}  mr-2 font-thin tracking-widest flex items-center`} on:click={(e) => {handleViewChange(e, 'slide')}}>&#x25A3; <span class="text-base">Slide</span></button>
 			<button class={`text-brand xs:text-base lg:text-2xl ${currentView === 'list' ? 'opacity-100' :'opacity-60'} font-thin tracking-widest flex items-center`} on:click={(e) => {handleViewChange(e, 'list')}}>&#x25A4; <span class="text-base">List</span></button>
 			
@@ -253,20 +258,20 @@
 	<div class={`wrapper w-full h-auto ${currentView === 'list' ? 'block' : 'hidden'}`}>
 		<ul class="flex-col w-full text-brand" id="project-list">
 			{#each products as product}
-				<a href={product.link} data-cursor-text="&#8599;">
+				<a href={`${isMobile ? '#' : product.link}`} data-cursor-text="&#8599;">
 					<li
-						class="item flex xs:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center justify-center experience-item"
+						class="item flex xs:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center justify-center experience-item xs:mb-2"
 					>
 						{#if product.image}
 							<img
 								alt="thumbnail"
 								src={product.image}
-								class={`thumbnail-image-${product.id} absolute w-3/5 object-contain invisible z-50`}
+								class={`thumbnail-image-${product.id} absolute xs:1/2 md:w-3/5 object-contain invisible z-50`}
 							/>
 						{/if}
 
 						<span
-							class="flex-2 text-white work_company-name xs:text-center lg:text-left hover:text-brand xs:text-2xl z-10 pb-4"
+							class="flex-2 text-white work_company-name xs:text-left lg:text-left hover:text-brand xs:text-base z-10 pb-4 xs:w-full xs:font-mono md:font-body"
 							on:mouseenter={handleMouseEnterList}
 							on:mousemove={handleMouseMove}
 							on:mouseleave={handleMouseLeaveList}

@@ -21,11 +21,12 @@
 	let loader = true;
 	let currentIndex = 0;
 	let cursor;
+	let isMobile = false;
 
 	MouseFollower.registerGSAP(gsap);
 
 	function updateText() {
-		const words = ['Kaustubh Saxena', '🛫 Traveller', '🎮 Gamer', '📘Reader', '👨‍💻Engineer'];
+		const words = ['Kaustubh Saxena', '🛫 TRAVELLING', '🎮 G a m i n g', '📘 R e a d i n g', '👨‍💻 ENGINEERING'];
 		const text = document.getElementById('changingText');
 		if (text) {
 			gsap.to(text, {
@@ -44,6 +45,7 @@
 	}
 
 	onMount(() => {
+		isMobile = window.innerWidth <= 767;
 		cursor = new MouseFollower({
 			stateDetection: false
 		});
@@ -167,15 +169,15 @@
 {:else}
 	<section id="app-wrapper">
 		<div
-			class="hidden flex justify-between top-0 left-0 right-0 m-auto w-full z-20 opacity-75 text-brand uppercase text-right navbar p-4 bg-black text-brand items-center"
+			class="hidden flex justify-between top-0 left-0 right-0 m-auto w-full z-20 opacity-75 text-brand uppercase text-right navbar p-4 bg-black text-brand items-center xs:flex-col md:flex-row"
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" height="45">
+			<svg xmlns="http://www.w3.org/2000/svg" height="45" width={`${isMobile ? "126" :"250"}`}>
 				<text
 					id="changingText"
 					x="10"
 					y="30"
 					font-family="Teko"
-					font-size="24"
+					font-size={`${isMobile?'18':'24'}`}
 					fill="#b7ab98"
 					transform="skewX(-2)"
 				>

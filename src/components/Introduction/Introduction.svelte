@@ -68,9 +68,9 @@ import asset_1 from '$lib/videos/intro.webm';
   <div class="fixed inset-0 h-screen w-screen bg-black opacity-60 xs:hidden sm:hidden md:hidden lg:block xl:block" id="intro-overlay"></div>
   <div class="text-container flex flex-col justify-center items-center z-10 relative h-full px-4 md:px-8 lg:px-16">
     <!-- <h1 class="text font-bold sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">WELCOME.<span class="text-mask">नमस्ते</span></h1> -->
-    <h1 class="text font-bold sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">KAUSTUBH SAXENA.<span class="text-mask text-white p-4">नाम है मेरा</span></h1>
-    <h1 class="text font-thin sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">DEVELOPER.<span class="text-mask text-white p-4">काम है मेरा</span></h1>
-    <h1 class="text font-thin sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">TRAVELLER.<span class="text-mask text-white p-4">शौक है मेरा</span></h1>
+    <h1 class="text font-bold xs:text-3xl sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">KAUSTUBH SAXENA.<span class="text-mask text-white p-4">नाम है मेरा</span></h1>
+    <h1 class="text font-thin xs:text-3xl sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">DEVELOPER.<span class="text-mask text-white p-4">काम है मेरा</span></h1>
+    <h1 class="text font-thin xs:text-3xl sm:text-4xl md:text-5xl lg:text-[8vw] xl:text-[8vw]">TRAVELLER.<span class="text-mask text-white p-4">शौक है मेरा</span></h1>
   </div>
 </div>
 

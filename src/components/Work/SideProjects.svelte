@@ -91,7 +91,7 @@
     </div>
   {/if} -->
   <div class="wrapper w-full z-50">
-    <h2 class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">Some of the Side Projects which I Built</h2>
+    <h2 class="text-2xl xs:text-base lg:text-2xl tracking-widest text-brand font-thin font-mono mb-8 opacity-50">Some of the Side Projects which I Built</h2>
     <ul class="flex-col w-full text-brand" id="project-list">
       {#each sideProjects as product}
         <a href={product.link} data-cursor-text="&#8599;">

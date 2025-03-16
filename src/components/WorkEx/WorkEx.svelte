@@ -89,7 +89,7 @@
 
 <div id="work" class="experience flex flex-col justify-start items-start h-full z-90 relative overflow-hidden px-4 xs:mt-8 sm:px-8 md:px-12 lg:px-16n">
   <div bind:this={experience} class="wrapper w-full">
-    <h2 class="text-2xl tracking-widest text-brand font-thin mb-8 opacity-50">EXPERIENCE</h2>
+    <h2 class="text-2xl tracking-widest text-brand font-thin mb-8 opacity-50 font-mono">EXPERIENCE</h2>
     <div bind:this={experience} class="flex-col w-full text-brand">
       {#each experienceData as data}
         <a href={data.link} target="_blank" class="w-full" data-cursor-text="&#8599;">

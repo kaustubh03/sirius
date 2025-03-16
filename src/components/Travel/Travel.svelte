@@ -15,14 +15,61 @@
   import bratislava from '$lib/images/travel/bratislava.jpg';
   import tbilisi from '$lib/images/travel/tbilisi.jpg';
   import india from '$lib/images/travel/india.jpg';
+  import tromso from '$lib/images/travel/tromso.jpg';
+  import oslo from '$lib/images/travel/oslo.jpg';
+  import stockholm from '$lib/images/travel/stockholm.jpg';
+  import gothenburg from '$lib/images/travel/gothenburg.jpg';
+  import sommaroy from '$lib/images/travel/sommaroy.jpg';
+  import barcelona from '$lib/images/travel/barcelona.jpg';
+  import nice from '$lib/images/travel/nice.jpg';
+  import monaco from '$lib/images/travel/monaco.jpg';
+  import cannes from '$lib/images/travel/cannes.jpg';
 
 	// const select = (e) => document.querySelector(e);
 	const selectAll = (e) => document.querySelectorAll(e);
   
-  let places = [ {
+  let places = [ 
+  {
     id: india,
     title: 'India'
-  },{
+  },
+  {
+    id: sommaroy,
+    title: 'Sommaroy'
+  },
+  {
+    id: tromso,
+    title: 'Tromso'
+  },
+  {
+    id: oslo,
+    title: 'Oslo'
+  },
+  {
+    id: stockholm,
+    title: 'Stockholm'
+  },
+  {
+    id: gothenburg,
+    title: 'Gothenburg'
+  },
+  {
+    id: barcelona,
+    title: 'Barcelona'
+  },
+  {
+    id: nice,
+    title: 'Nice'
+  },
+  {
+    id: monaco,
+    title: 'Monaco'
+  },
+  {
+    id: cannes,
+    title: 'Cannes'
+  },
+  {
     id: amsterdam,
     title: 'Amsterdam'
   },
@@ -134,10 +181,10 @@
 <section class="sticky-element half-height mb-28 section" id="travel" data-cursor-text='&darr;'>
       <div class="flex justify-center">
         <!-- <a href="#sideProjects" class="absolute top-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to previous section &#8689;</a> -->
-        <a href="#contact" class="absolute bottom-20 left-10 z-50 text-brand text-2xl bg-primary p-4 opacity-50 hover:opacity-100">Skip to next section &#8690;</a>
+        <a href="#contact" class="absolute bottom-20 left-10 z-50 text-brand bg-primary opacity-50 hover:opacity-100 xs:text-sm md:text-2xl xs:p-2 md:p-4">Skip to next section &#8690;</a>
       </div>
 	<div class="track flex relative">
-          <span class="text-[12em] text-brand font-bold text-left ml-8 title">TRAVEL JOURNAL</span>
+          <span class="text-[12em] text-brand font-mono font-bold text-left ml-8 title">TRAVEL JOURNAL</span>
 
 		<div class="track-flex">
       {#each places as place}

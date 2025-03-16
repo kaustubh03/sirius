@@ -36,10 +36,26 @@
 		<meta name="twitter:site" content="@cos2b_dev">
 		<meta name="twitter:creator" content="@cos2b_dev">
 
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ7EQ6MYWY"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'G-PQ7EQ6MYWY');
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+
+		<script>
+			gtag('event', 'screen_view', {
+					'app_name': 'KaustubhDev',
+					'screen_name': 'Home'
+				});
+		</script>
 	</body>
 	
 </html>
