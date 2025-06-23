@@ -32,7 +32,7 @@
         The Quote I love the most
       </h2>
       <span class="w-full text-xl xs:text-base sm:text-xl md:text-2xl lg:text-4xl text-brand font-bold text-left md:text-right flex justify-start md:justify-end items-center">
-        Rock bottom will teach you the lessions that mountain tops never will.
+        Rock bottom will teach you the lessons that mountain tops never will.
       </span>
     </div>
   </div>
