@@ -194,8 +194,11 @@
 				<li class="xs:mr-4 lg:mr-24 text-2xl hover:text-white tracking-wider font-teko">
 					<a href="#work">Work</a>
 				</li>
-				<li class="hover:text-white text-2xl tracking-wider font-teko">
+				<li class="xs:mr-4 lg:mr-24 hover:text-white text-2xl tracking-wider font-teko">
 					<a href="#travel">Travel</a>
+				</li>
+				<li class="hover:text-white text-2xl tracking-wider font-teko">
+					<a href="https://kaustubhsaxena.substack.com/" target="_blank" rel="noopener noreferrer">Blog</a>
 				</li>
 			</ul>
 		</div>
